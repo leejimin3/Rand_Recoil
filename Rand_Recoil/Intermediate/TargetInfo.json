@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Rand_Recoil",
+			"Path": "D:\\Rand_Recoil\\Rand_Recoil\\Source\\Rand_Recoil.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "Rand_RecoilEditor",
+			"Path": "D:\\Rand_Recoil\\Rand_Recoil\\Source\\Rand_RecoilEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

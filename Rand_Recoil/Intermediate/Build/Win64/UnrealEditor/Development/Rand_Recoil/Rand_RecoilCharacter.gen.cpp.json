@@ -1,0 +1,21 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\unrealeditor\\inc\\rand_recoil\\rand_recoilcharacter.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\rand_recoileditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\unrealeditor\\development\\rand_recoil\\definitions.rand_recoil.h",
+            "d:\\rand_recoil\\rand_recoil\\source\\rand_recoil\\rand_recoilcharacter.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\charactermovementreplication.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\rootmotionsource.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\character.generated.h",
+            "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\unrealeditor\\inc\\rand_recoil\\rand_recoilcharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

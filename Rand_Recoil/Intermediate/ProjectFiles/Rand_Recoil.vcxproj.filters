@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Rand_Recoil.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Rand_Recoil.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\Rand_RecoilEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Rand_Recoil">
+      <UniqueIdentifier>{9F6ECC2A-25D6-329D-B76A-DDD6093EF2E1}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Rand_Recoil\Rand_Recoil.Build.cs">
+      <Filter>Source\Rand_Recoil</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Rand_Recoil\Rand_Recoil.cpp">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rand_Recoil\Rand_Recoil.h">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rand_Recoil\Rand_RecoilCharacter.cpp">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rand_Recoil\Rand_RecoilCharacter.h">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rand_Recoil\Rand_RecoilGameMode.cpp">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rand_Recoil\Rand_RecoilGameMode.h">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rand_Recoil\Rand_RecoilProjectile.cpp">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rand_Recoil\Rand_RecoilProjectile.h">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rand_Recoil\TP_PickUpComponent.cpp">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rand_Recoil\TP_PickUpComponent.h">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rand_Recoil\TP_WeaponComponent.cpp">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rand_Recoil\TP_WeaponComponent.h">
+      <Filter>Source\Rand_Recoil</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\rand_recoil\\rand_recoil\\source\\rand_recoil\\rand_recoil.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\rand_recoileditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\unrealeditor\\development\\rand_recoil\\definitions.rand_recoil.h",
+            "d:\\rand_recoil\\rand_recoil\\source\\rand_recoil\\rand_recoil.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

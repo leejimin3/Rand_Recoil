@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Rand_Recoil\\Rand_Recoil\\Source\\Rand_Recoil\\Rand_Recoil.Build.cs",
+		"D:\\Rand_Recoil\\Rand_Recoil\\Source\\Rand_Recoil.Target.cs",
+		"D:\\Rand_Recoil\\Rand_Recoil\\Source\\Rand_RecoilEditor.Target.cs"
+	],
+	"EngineVersion": "5.0.3"
+}

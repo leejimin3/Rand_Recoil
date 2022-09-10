@@ -1,0 +1,23 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\rand_recoil\\rand_recoil\\source\\rand_recoil\\rand_recoilprojectile.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\rand_recoileditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\unrealeditor\\development\\rand_recoil\\definitions.rand_recoil.h",
+            "d:\\rand_recoil\\rand_recoil\\source\\rand_recoil\\rand_recoilprojectile.h",
+            "d:\\rand_recoil\\rand_recoil\\intermediate\\build\\win64\\unrealeditor\\inc\\rand_recoil\\rand_recoilprojectile.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\projectilemovementcomponent.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\movementcomponent.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\movementcomponent.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\projectilemovementcomponent.generated.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\spherecomponent.h",
+            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\shapecomponent.generated.h",
+            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\spherecomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
