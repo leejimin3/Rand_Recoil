@@ -88,15 +88,22 @@ public:
 	void OnStopFire();
 	void OnStartReload();
 	void Reload();
+	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_CurrentAmmo, BlueprintSetter = Set_CurrentAmmo, Category = Stat)
+		int32 CurrentAmmo = 0;
+	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_DefaultAmmo, BlueprintSetter = Set_DefaultAmmo, Category = Stat)
+		int32 DefaultAmmo = 0;
 
-	int32 CurrentAmmo = 0;
-	int32 DefaultAmmo = 0;
 
-	int Get_DefaultAmmo();
-	void Set_DefaultAmmo(int32 Ammo);
+	UFUNCTION(BlueprintGetter, Category = Stat)
+		int Get_DefaultAmmo();
+	UFUNCTION(BlueprintSetter, Category = Stat)
+		void Set_DefaultAmmo(int32 Ammo);
 
-	int Get_CurrentAmmo();
-	void Set_CurrentAmmo(int32 Ammo);
+	UFUNCTION(BlueprintGetter, Category = Stat)
+		int Get_CurrentAmmo();
+
+	UFUNCTION(BlueprintSetter, Category = Stat)
+		void Set_CurrentAmmo(int32 Ammo);
 
 	FTimerHandle AutomaticFireHandle;
 
