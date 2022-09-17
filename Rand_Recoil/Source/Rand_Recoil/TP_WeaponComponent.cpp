@@ -81,6 +81,8 @@ void UTP_WeaponComponent::AttachWeapon(ARand_RecoilCharacter* TargetCharacter)
 
 		// Register so that Fire is called every time the character tries to use the item being held
 		Character->OnUseItem.AddDynamic(this, &UTP_WeaponComponent::Fire);
+
+		Character->Set_DefaultAmmo(Ammo);
 	}
 }
 

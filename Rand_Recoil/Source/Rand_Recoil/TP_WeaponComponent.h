@@ -47,6 +47,9 @@ protected:
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 		
 
+	int32 Ammo = 30;
+
+
 private:
 	/** The Character holding this weapon*/
 	ARand_RecoilCharacter* Character;

@@ -80,6 +80,28 @@ protected:
 	void TouchUpdate(const ETouchIndex::Type FingerIndex, const FVector Location);
 	TouchData	TouchItem;
 	
+
+public:
+
+#pragma region ADVANCED RECOIL
+	void OnStartFire();
+	void OnStopFire();
+	void OnStartReload();
+	void Reload();
+
+	int32 CurrentAmmo;
+	int32 DefaultAmmo = 1;
+
+	int Get_DefaultAmmo();
+	void Set_DefaultAmmo(int32 Ammo);
+
+	FTimerHandle AutomaticFireHandle;
+
+
+
+#pragma endregion
+
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;

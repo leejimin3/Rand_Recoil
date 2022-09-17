@@ -78,6 +78,7 @@ void ARand_RecoilCharacter::OnPrimaryAction()
 {
 	// Trigger the OnItemUsed Event
 	OnUseItem.Broadcast();
+	UE_LOG(LogTemp, Log, TEXT("DefaultAmmo :: %u"), this->DefaultAmmo);
 }
 
 void ARand_RecoilCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
@@ -104,6 +105,36 @@ void ARand_RecoilCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const 
 	}
 	TouchItem.bIsPressed = false;
 }
+
+
+void ARand_RecoilCharacter::OnStartFire()
+{
+}
+
+void ARand_RecoilCharacter::OnStopFire()
+{
+}
+
+void ARand_RecoilCharacter::OnStartReload()
+{
+}
+
+void ARand_RecoilCharacter::Reload()
+{
+}
+
+int ARand_RecoilCharacter::Get_DefaultAmmo()
+{
+	return DefaultAmmo;
+}
+
+void ARand_RecoilCharacter::Set_DefaultAmmo(int32 Ammo)
+{
+	DefaultAmmo = Ammo;
+}
+
+
+
 
 void ARand_RecoilCharacter::MoveForward(float Value)
 {
