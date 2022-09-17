@@ -4,6 +4,7 @@
 #include "TP_WeaponComponent.h"
 #include "Rand_RecoilCharacter.h"
 #include "Rand_RecoilProjectile.h"
+#include "DrawDebugHelpers.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"
 #include "Kismet/GameplayStatics.h"
@@ -30,16 +31,38 @@ void UTP_WeaponComponent::Fire()
 		if (World != nullptr)
 		{
 			APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
-			const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-			// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-			const FVector SpawnLocation = GetOwner()->GetActorLocation() + SpawnRotation.RotateVector(MuzzleOffset);
+			UE_LOG(LogTemp, Log, TEXT("DefaultAmmo :: %u"), Character->DefaultAmmo);
+
+			FHitResult Hit;
+			FVector CameraLocation;
+			FRotator CameraRotation;
+
+			PlayerController->GetPlayerViewPoint(CameraLocation, CameraRotation);
+			FCollisionQueryParams Params;
+			Params.AddIgnoredActor(Character);
+
+			FVector TraceStart = CameraLocation;
+			FVector TraceEnd = TraceStart + CameraRotation.Vector() * 10000;
+
+			bool bHasHitSomething = World->LineTraceSingleByChannel(Hit, TraceStart, TraceEnd, ECC_Visibility, Params);
+			DrawDebugLine(World, TraceStart, TraceEnd, FColor::Red, false, 3.0f, 0, 0.5f);
+
+			if (bHasHitSomething)
+			{
+				DrawDebugBox(World, Hit.Location, FVector(15), FColor::Green, false, 3.0f, 0, 3.0f);
+			}
+
+
+			//const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
+			//// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+			//const FVector SpawnLocation = GetOwner()->GetActorLocation() + SpawnRotation.RotateVector(MuzzleOffset);
 	
-			//Set Spawn Collision Handling Override
-			FActorSpawnParameters ActorSpawnParams;
-			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+			////Set Spawn Collision Handling Override
+			//FActorSpawnParameters ActorSpawnParams;
+			//ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 	
-			// Spawn the projectile at the muzzle
-			World->SpawnActor<ARand_RecoilProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			//// Spawn the projectile at the muzzle
+			//World->SpawnActor<ARand_RecoilProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 		}
 	}
 	

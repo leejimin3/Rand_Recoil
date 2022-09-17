@@ -78,7 +78,6 @@ void ARand_RecoilCharacter::OnPrimaryAction()
 {
 	// Trigger the OnItemUsed Event
 	OnUseItem.Broadcast();
-	UE_LOG(LogTemp, Log, TEXT("DefaultAmmo :: %u"), this->DefaultAmmo);
 }
 
 void ARand_RecoilCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
