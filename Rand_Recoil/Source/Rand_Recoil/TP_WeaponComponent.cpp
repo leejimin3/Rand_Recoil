@@ -24,14 +24,17 @@ void UTP_WeaponComponent::Fire()
 		return;
 	}
 
+
 	// Try and fire a projectile
-	if (ProjectileClass != nullptr)
+	if (Character->Get_CurrentAmmo() > 0)
 	{
 		UWorld* const World = GetWorld();
 		if (World != nullptr)
 		{
+
+			Character->Set_CurrentAmmo(Character->Get_CurrentAmmo()-1);
 			APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
-			UE_LOG(LogTemp, Log, TEXT("DefaultAmmo :: %u"), Character->DefaultAmmo);
+
 
 			FHitResult Hit;
 			FVector CameraLocation;
@@ -52,6 +55,22 @@ void UTP_WeaponComponent::Fire()
 				DrawDebugBox(World, Hit.Location, FVector(15), FColor::Green, false, 3.0f, 0, 3.0f);
 			}
 
+			// Try and play the sound if specified
+			if (FireSound != nullptr)
+			{
+				UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation());
+			}
+
+			// Try and play a firing animation if specified
+			if (FireAnimation != nullptr)
+			{
+				// Get the animation object for the arms mesh
+				UAnimInstance* AnimInstance = Character->GetMesh1P()->GetAnimInstance();
+				if (AnimInstance != nullptr)
+				{
+					AnimInstance->Montage_Play(FireAnimation, 1.f);
+				}
+			}
 
 			//const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 			//// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
@@ -66,22 +85,7 @@ void UTP_WeaponComponent::Fire()
 		}
 	}
 	
-	// Try and play the sound if specified
-	if (FireSound != nullptr)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation());
-	}
-	
-	// Try and play a firing animation if specified
-	if (FireAnimation != nullptr)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Character->GetMesh1P()->GetAnimInstance();
-		if (AnimInstance != nullptr)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
-	}
+
 }
 
 void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -106,6 +110,7 @@ void UTP_WeaponComponent::AttachWeapon(ARand_RecoilCharacter* TargetCharacter)
 		Character->OnUseItem.AddDynamic(this, &UTP_WeaponComponent::Fire);
 
 		Character->Set_DefaultAmmo(Ammo);
+		Character->Set_CurrentAmmo(Ammo);
 	}
 }
 

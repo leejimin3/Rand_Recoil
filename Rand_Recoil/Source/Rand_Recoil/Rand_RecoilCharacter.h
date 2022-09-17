@@ -89,11 +89,14 @@ public:
 	void OnStartReload();
 	void Reload();
 
-	int32 CurrentAmmo;
+	int32 CurrentAmmo = 0;
 	int32 DefaultAmmo = 0;
 
 	int Get_DefaultAmmo();
 	void Set_DefaultAmmo(int32 Ammo);
+
+	int Get_CurrentAmmo();
+	void Set_CurrentAmmo(int32 Ammo);
 
 	FTimerHandle AutomaticFireHandle;
 

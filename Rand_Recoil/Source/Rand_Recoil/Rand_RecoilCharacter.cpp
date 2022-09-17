@@ -58,6 +58,8 @@ void ARand_RecoilCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	// Bind fire event
 	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &ARand_RecoilCharacter::OnStartFire);
 	PlayerInputComponent->BindAction("PrimaryAction", IE_Released, this, &ARand_RecoilCharacter::OnStopFire);
+
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ARand_RecoilCharacter::OnStartReload);
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
 
@@ -125,7 +127,7 @@ void ARand_RecoilCharacter::OnStartReload()
 
 void ARand_RecoilCharacter::Reload()
 {
-	CurrentAmmo = DefaultAmmo;
+	Set_CurrentAmmo(DefaultAmmo);
 }
 
 
@@ -139,6 +141,17 @@ void ARand_RecoilCharacter::Set_DefaultAmmo(int32 Ammo)
 {
 	DefaultAmmo = Ammo;
 }
+
+int ARand_RecoilCharacter::Get_CurrentAmmo()
+{
+	return CurrentAmmo;
+}
+
+void ARand_RecoilCharacter::Set_CurrentAmmo(int32 Ammo)
+{
+	CurrentAmmo = Ammo;
+}
+
 
 
 
