@@ -90,7 +90,7 @@ public:
 	void Reload();
 
 	int32 CurrentAmmo;
-	int32 DefaultAmmo = 1;
+	int32 DefaultAmmo = 0;
 
 	int Get_DefaultAmmo();
 	void Set_DefaultAmmo(int32 Ammo);

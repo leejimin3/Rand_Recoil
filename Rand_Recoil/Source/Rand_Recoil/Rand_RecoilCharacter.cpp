@@ -56,8 +56,8 @@ void ARand_RecoilCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
-	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &ARand_RecoilCharacter::OnPrimaryAction);
-
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &ARand_RecoilCharacter::OnStartFire);
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Released, this, &ARand_RecoilCharacter::OnStopFire);
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
 
@@ -109,19 +109,27 @@ void ARand_RecoilCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const 
 
 void ARand_RecoilCharacter::OnStartFire()
 {
+	OnPrimaryAction();
+	GetWorld()->GetTimerManager().SetTimer(AutomaticFireHandle, this, &ARand_RecoilCharacter::OnPrimaryAction, 0.1, true);
 }
 
 void ARand_RecoilCharacter::OnStopFire()
 {
+	GetWorld()->GetTimerManager().ClearTimer(AutomaticFireHandle);
 }
 
 void ARand_RecoilCharacter::OnStartReload()
 {
+	FTimerHandle ReloadHandle;
+	GetWorld()->GetTimerManager().SetTimer(ReloadHandle, this, &ARand_RecoilCharacter::Reload, 1.25);
 }
 
 void ARand_RecoilCharacter::Reload()
 {
+	CurrentAmmo = DefaultAmmo;
 }
+
+
 
 int ARand_RecoilCharacter::Get_DefaultAmmo()
 {
