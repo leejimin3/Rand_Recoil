@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "Components/TimelineComponent.h"
 #include "Components/ActorComponent.h"
 #include "TP_WeaponComponent.generated.h"
 
@@ -42,12 +44,32 @@ public:
 	void Fire();
 
 protected:
-	/** Ends gameplay for this component. */
+
 	UFUNCTION()
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-		
+	
 
 	int32 Ammo = 30;
+public:
+	FTimeline RecoilTimeline;
+
+	UFUNCTION()
+	void StartHorizontalRecoil(float Value);
+
+	UFUNCTION()
+	void StartVerticalRecoil(float Value);
+
+	void StartRecoil();
+
+	void ReverseRecoil();
+
+	UPROPERTY(EditAnywhere, BluePrintReadOnly, Category = "Advanced Recoil")
+	class UCurveFloat* HorizentalCurve;
+
+	UPROPERTY(EditAnywhere, BluePrintReadOnly, Category="Advanced Recoil")
+	class UCurveFloat* VecticalCurve;
+
+
 
 
 private:

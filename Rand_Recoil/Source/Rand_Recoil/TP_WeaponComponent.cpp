@@ -9,11 +9,14 @@
 #include "Camera/PlayerCameraManager.h"
 #include "Kismet/GameplayStatics.h"
 
+
+
 // Sets default values for this component's properties
 UTP_WeaponComponent::UTP_WeaponComponent()
 {
 	// Default offset from the character location for projectiles to spawn
 	MuzzleOffset = FVector(100.0f, 0.0f, 10.0f);
+
 }
 
 
@@ -31,9 +34,9 @@ void UTP_WeaponComponent::Fire()
 		UWorld* const World = GetWorld();
 		if (World != nullptr)
 		{
-
-			Character->Set_CurrentAmmo(Character->Get_CurrentAmmo()-1);
 			APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
+			Character->Set_CurrentAmmo(Character->Get_CurrentAmmo()-1);
+
 
 
 			FHitResult Hit;
@@ -88,6 +91,10 @@ void UTP_WeaponComponent::Fire()
 
 }
 
+
+
+
+
 void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	if(Character != nullptr)
@@ -95,6 +102,24 @@ void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		// Unregister from the OnUseItem Event
 		Character->OnUseItem.RemoveDynamic(this, &UTP_WeaponComponent::Fire);
 	}
+}
+
+void UTP_WeaponComponent::StartHorizontalRecoil(float Value)
+{
+	Character->AddControllerYawInput(Value);
+}
+
+void UTP_WeaponComponent::StartVerticalRecoil(float Value)
+{
+	Character->AddControllerPitchInput(Value);
+}
+
+void UTP_WeaponComponent::StartRecoil()
+{
+}
+
+void UTP_WeaponComponent::ReverseRecoil()
+{
 }
 
 void UTP_WeaponComponent::AttachWeapon(ARand_RecoilCharacter* TargetCharacter)
