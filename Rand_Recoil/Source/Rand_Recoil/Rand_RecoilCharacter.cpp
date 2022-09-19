@@ -46,6 +46,11 @@ void ARand_RecoilCharacter::BeginPlay()
 
 //////////////////////////////////////////////////////////////////////////// Input
 
+bool ARand_RecoilCharacter::Get_MouseDown()
+{
+	return MouseDown;
+}
+
 void ARand_RecoilCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	// Set up gameplay key bindings
@@ -110,12 +115,14 @@ void ARand_RecoilCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const 
 
 void ARand_RecoilCharacter::OnStartFire()
 {
+	MouseDown = true;
 	OnPrimaryAction();
 	GetWorld()->GetTimerManager().SetTimer(AutomaticFireHandle, this, &ARand_RecoilCharacter::OnPrimaryAction, 0.1, true);
 }
 
 void ARand_RecoilCharacter::OnStopFire()
 {
+	MouseDown = false;
 	GetWorld()->GetTimerManager().ClearTimer(AutomaticFireHandle);
 }
 
@@ -127,7 +134,8 @@ void ARand_RecoilCharacter::OnStartReload()
 
 void ARand_RecoilCharacter::Reload()
 {
-	Set_CurrentAmmo(DefaultAmmo);
+	if(MouseDown == false)
+		Set_CurrentAmmo(DefaultAmmo);
 }
 
 

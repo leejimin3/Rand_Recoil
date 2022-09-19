@@ -107,7 +107,11 @@ public:
 
 	FTimerHandle AutomaticFireHandle;
 
+	UPROPERTY()
+		bool MouseDown = false;
 
+	UFUNCTION(BlueprintGetter, Category = Stat)
+		bool Get_MouseDown();
 
 #pragma endregion
 

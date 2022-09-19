@@ -21,8 +21,24 @@ static inline void FOnUseItem_DelegateWrapper(const FMulticastScriptDelegate& On
 
 
 #define FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_23_SPARSE_DATA
-#define FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_23_RPC_WRAPPERS
-#define FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_23_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_23_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGet_MouseDown); \
+	DECLARE_FUNCTION(execSet_CurrentAmmo); \
+	DECLARE_FUNCTION(execGet_CurrentAmmo); \
+	DECLARE_FUNCTION(execSet_DefaultAmmo); \
+	DECLARE_FUNCTION(execGet_DefaultAmmo);
+
+
+#define FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGet_MouseDown); \
+	DECLARE_FUNCTION(execSet_CurrentAmmo); \
+	DECLARE_FUNCTION(execGet_CurrentAmmo); \
+	DECLARE_FUNCTION(execSet_DefaultAmmo); \
+	DECLARE_FUNCTION(execGet_DefaultAmmo);
+
+
 #define FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_23_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesARand_RecoilCharacter(); \

@@ -17,27 +17,53 @@ UTP_WeaponComponent::UTP_WeaponComponent()
 	// Default offset from the character location for projectiles to spawn
 	MuzzleOffset = FVector(100.0f, 0.0f, 10.0f);
 
+	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bStartWithTickEnabled = true;
+}
+
+
+void UTP_WeaponComponent::SetCurve(UCurveFloat* Hor, UCurveFloat* Ver)
+{
+	FOnTimelineFloat XRecoilCurve;
+	FOnTimelineFloat YRecoilCurve;
+
+	XRecoilCurve.BindUFunction(this, FName("StartHorizontalRecoil"));
+	YRecoilCurve.BindUFunction(this, FName("StartVerticalRecoil"));
+
+	if (!Hor || !Ver)
+	{
+		return;
+	}
+
+	RecoilTimeline.AddInterpFloat(Hor, XRecoilCurve);
+	RecoilTimeline.AddInterpFloat(Ver, YRecoilCurve);
 }
 
 
 void UTP_WeaponComponent::Fire()
-{
+{	
 	if(Character == nullptr || Character->GetController() == nullptr)
 	{
 		return;
 	}
 
 
+
+	UWorld* const World = GetWorld();
 	// Try and fire a projectile
 	if (Character->Get_CurrentAmmo() > 0)
 	{
-		UWorld* const World = GetWorld();
 		if (World != nullptr)
 		{
+			if(OnRecoil == false)
+			{
+				SetCurve(HorizentalCurve, VerticalCurve);
+				StartRecoil();
+				OnRecoil = true;
+			}
+
 			APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
 			Character->Set_CurrentAmmo(Character->Get_CurrentAmmo()-1);
-
-
 
 			FHitResult Hit;
 			FVector CameraLocation;
@@ -75,6 +101,8 @@ void UTP_WeaponComponent::Fire()
 				}
 			}
 
+
+
 			//const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 			//// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
 			//const FVector SpawnLocation = GetOwner()->GetActorLocation() + SpawnRotation.RotateVector(MuzzleOffset);
@@ -87,7 +115,12 @@ void UTP_WeaponComponent::Fire()
 			//World->SpawnActor<ARand_RecoilProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 		}
 	}
-	
+	else
+	{
+		Character->OnStopFire();
+		ReverseRecoil();
+		OnRecoil = false;
+	}
 
 }
 
@@ -104,6 +137,35 @@ void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	}
 }
 
+
+void UTP_WeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+	if (RecoilTimeline.IsPlaying())
+	{
+		RecoilTimeline.TickTimeline(DeltaTime);
+
+		if (Character->Get_MouseDown() == false)
+		{
+			ReverseRecoil();
+			OnRecoil = false;
+		}
+	}
+	
+	if (RecoilTimeline.IsReversing())
+	{
+		RecoilTimeline.TickTimeline(DeltaTime);
+
+		if (Character->Get_MouseDown() == false)
+		{
+			ReverseRecoil();
+			OnRecoil = false;
+		}
+	}
+
+}
+
+
+
 void UTP_WeaponComponent::StartHorizontalRecoil(float Value)
 {
 	Character->AddControllerYawInput(Value);
@@ -114,12 +176,16 @@ void UTP_WeaponComponent::StartVerticalRecoil(float Value)
 	Character->AddControllerPitchInput(Value);
 }
 
+
+
 void UTP_WeaponComponent::StartRecoil()
 {
+	RecoilTimeline.PlayFromStart();
 }
 
 void UTP_WeaponComponent::ReverseRecoil()
 {
+	RecoilTimeline.Reverse();
 }
 
 void UTP_WeaponComponent::AttachWeapon(ARand_RecoilCharacter* TargetCharacter)

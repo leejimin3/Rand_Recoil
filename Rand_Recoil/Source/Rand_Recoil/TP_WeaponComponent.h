@@ -48,8 +48,11 @@ protected:
 	UFUNCTION()
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	
+	void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	int32 Ammo = 30;
+
+	bool OnRecoil = false;
 public:
 	FTimeline RecoilTimeline;
 
@@ -59,6 +62,9 @@ public:
 	UFUNCTION()
 	void StartVerticalRecoil(float Value);
 
+	UFUNCTION()
+	void SetCurve(UCurveFloat* Hor, UCurveFloat* Ver);
+
 	void StartRecoil();
 
 	void ReverseRecoil();
@@ -67,7 +73,7 @@ public:
 	class UCurveFloat* HorizentalCurve;
 
 	UPROPERTY(EditAnywhere, BluePrintReadOnly, Category="Advanced Recoil")
-	class UCurveFloat* VecticalCurve;
+	class UCurveFloat* VerticalCurve;
 
 
 
