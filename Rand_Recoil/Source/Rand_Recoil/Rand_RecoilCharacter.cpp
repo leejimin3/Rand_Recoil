@@ -75,8 +75,8 @@ void ARand_RecoilCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "Mouse" versions handle devices that provide an absolute delta, such as a mouse.
 	// "Gamepad" versions are for devices that we choose to treat as a rate of change, such as an analog joystick
-	PlayerInputComponent->BindAxis("Turn Right / Left Mouse", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("Look Up / Down Mouse", this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("Turn Right / Left Mouse", this, &ARand_RecoilCharacter::Turn);
+	PlayerInputComponent->BindAxis("Look Up / Down Mouse", this, &ARand_RecoilCharacter::Lookup);
 	PlayerInputComponent->BindAxis("Turn Right / Left Gamepad", this, &ARand_RecoilCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("Look Up / Down Gamepad", this, &ARand_RecoilCharacter::LookUpAtRate);
 }
@@ -116,6 +116,7 @@ void ARand_RecoilCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const 
 void ARand_RecoilCharacter::OnStartFire()
 {
 	MouseDown = true;
+	StartRotation = GetControlRotation();
 	OnPrimaryAction();
 	GetWorld()->GetTimerManager().SetTimer(AutomaticFireHandle, this, &ARand_RecoilCharacter::OnPrimaryAction, 0.1, true);
 }
@@ -180,6 +181,18 @@ void ARand_RecoilCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(GetActorRightVector(), Value);
 	}
+}
+
+void ARand_RecoilCharacter::Turn(float Value)
+{
+	YawInput = Value;
+	AddControllerYawInput(Value);
+}
+
+void ARand_RecoilCharacter::Lookup(float Value)
+{
+	PitchInput = Value;
+	AddControllerPitchInput(Value);
 }
 
 void ARand_RecoilCharacter::TurnAtRate(float Rate)

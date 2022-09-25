@@ -55,6 +55,14 @@ protected:
 	/** Handles strafing movement, left and right */
 	void MoveRight(float Val);
 
+
+	void Turn(float Value);
+
+	void Lookup(float Value);
+	
+
+
+
 	/**
 	 * Called via input to turn at a given rate.
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
@@ -107,12 +115,16 @@ public:
 
 	FTimerHandle AutomaticFireHandle;
 
+	FRotator StartRotation;
+
 	UPROPERTY()
 		bool MouseDown = false;
 
 	UFUNCTION(BlueprintGetter, Category = Stat)
 		bool Get_MouseDown();
 
+	float YawInput;
+	float PitchInput;
 #pragma endregion
 
 

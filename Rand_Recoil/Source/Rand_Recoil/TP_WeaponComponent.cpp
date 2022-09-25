@@ -8,6 +8,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 
 
@@ -54,7 +55,7 @@ void UTP_WeaponComponent::Fire()
 	if (Character->Get_CurrentAmmo() > 0)
 	{
 		if (World != nullptr)
-		{
+		{	
 			if(OnRecoil == false)
 			{
 				SetCurve(HorizentalCurve, VerticalCurve);
@@ -117,9 +118,10 @@ void UTP_WeaponComponent::Fire()
 	}
 	else
 	{
-		Character->OnStopFire();
-		ReverseRecoil();
-		OnRecoil = false;
+		return;
+		//Character->OnStopFire();
+		//ReverseRecoil();
+		//OnRecoil = false;
 	}
 
 }
@@ -153,7 +155,18 @@ void UTP_WeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	
 	if (RecoilTimeline.IsReversing())
 	{
+
+		if (FMath::Abs(Character->YawInput) > 0 || FMath::Abs(Character->PitchInput) > 0)
+		{
+			RecoilTimeline.Stop();
+			return;
+		}
+
 		RecoilTimeline.TickTimeline(DeltaTime);
+
+		FRotator NewRotation = UKismetMathLibrary::RInterpTo(Character->GetControlRotation(), Character->StartRotation, DeltaTime, 10.0f);
+
+		Character->Controller->ClientSetRotation(NewRotation);
 
 		if (Character->Get_MouseDown() == false)
 		{
@@ -168,11 +181,13 @@ void UTP_WeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 
 void UTP_WeaponComponent::StartHorizontalRecoil(float Value)
 {
+	if (RecoilTimeline.IsReversing()) {return;}
 	Character->AddControllerYawInput(Value);
 }
 
 void UTP_WeaponComponent::StartVerticalRecoil(float Value)
 {
+	if (RecoilTimeline.IsReversing()) { return; }
 	Character->AddControllerPitchInput(Value);
 }
 
@@ -185,7 +200,7 @@ void UTP_WeaponComponent::StartRecoil()
 
 void UTP_WeaponComponent::ReverseRecoil()
 {
-	RecoilTimeline.Reverse();
+	RecoilTimeline.ReverseFromEnd();
 }
 
 void UTP_WeaponComponent::AttachWeapon(ARand_RecoilCharacter* TargetCharacter)
