@@ -72,10 +72,10 @@ public:
 	void ReverseRecoil();
 
 	UPROPERTY(EditAnywhere, Category = "Advanced Recoil")
-	class UCurveFloat* HorizentalCurve;
+	class UCurveFloat* HorizentalCurve[3];
 
 	UPROPERTY(EditAnywhere, Category="Advanced Recoil")
-	class UCurveFloat* VerticalCurve;
+	class UCurveFloat* VerticalCurve[3];
 
 
 
