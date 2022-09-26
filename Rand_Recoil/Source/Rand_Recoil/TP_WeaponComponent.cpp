@@ -39,10 +39,6 @@ void UTP_WeaponComponent::SetCurve(UCurveFloat* Hor, UCurveFloat* Ver)
 		XRecoilCurve.BindUFunction(this, FName("StartHorizontalRecoil"));
 		YRecoilCurve.BindUFunction(this, FName("StartVerticalRecoil"));
 
-
-
-
-
 		if (first == false)
 		{
 		RecoilTimeline.AddInterpFloat(Hor, XRecoilCurve, NAME_None, TEXT("Test1"));
@@ -78,8 +74,9 @@ void UTP_WeaponComponent::Fire()
 		{	
 			if(OnRecoil == false)
 			{
-				SetCurve(HorizentalCurve, VerticalCurve);
-
+				int ran = rand() % 3;
+				SetCurve(HorizentalCurve[ran], VerticalCurve[ran]);
+				UE_LOG(LogTemp, Log, TEXT("%d"), ran);
 				StartRecoil();
 				OnRecoil = true;
 			}
