@@ -9,6 +9,7 @@
 #include "Camera/PlayerCameraManager.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
+#include <random>
 
 
 
@@ -25,19 +26,38 @@ UTP_WeaponComponent::UTP_WeaponComponent()
 
 void UTP_WeaponComponent::SetCurve(UCurveFloat* Hor, UCurveFloat* Ver)
 {
-	FOnTimelineFloat XRecoilCurve;
-	FOnTimelineFloat YRecoilCurve;
-
-	XRecoilCurve.BindUFunction(this, FName("StartHorizontalRecoil"));
-	YRecoilCurve.BindUFunction(this, FName("StartVerticalRecoil"));
 
 	if (!Hor || !Ver)
 	{
 		return;
 	}
 
-	RecoilTimeline.AddInterpFloat(Hor, XRecoilCurve);
-	RecoilTimeline.AddInterpFloat(Ver, YRecoilCurve);
+		FOnTimelineFloat XRecoilCurve;
+		FOnTimelineFloat YRecoilCurve;
+
+
+		XRecoilCurve.BindUFunction(this, FName("StartHorizontalRecoil"));
+		YRecoilCurve.BindUFunction(this, FName("StartVerticalRecoil"));
+
+
+
+
+
+		if (first == false)
+		{
+		RecoilTimeline.AddInterpFloat(Hor, XRecoilCurve, NAME_None, TEXT("Test1"));
+		RecoilTimeline.AddInterpFloat(Ver, YRecoilCurve, NAME_None, TEXT("Test2"));
+		first = true;
+		}
+
+		else
+		{
+			RecoilTimeline.SetFloatCurve(Hor, TEXT("Test1"));
+			RecoilTimeline.SetFloatCurve(Ver, TEXT("Test2"));
+		}
+
+
+
 }
 
 
@@ -59,6 +79,7 @@ void UTP_WeaponComponent::Fire()
 			if(OnRecoil == false)
 			{
 				SetCurve(HorizentalCurve, VerticalCurve);
+
 				StartRecoil();
 				OnRecoil = true;
 			}
@@ -118,10 +139,10 @@ void UTP_WeaponComponent::Fire()
 	}
 	else
 	{
+		Character->OnStopFire();
+		OnRecoil = false;
 		return;
-		//Character->OnStopFire();
-		//ReverseRecoil();
-		//OnRecoil = false;
+
 	}
 
 }
@@ -182,12 +203,14 @@ void UTP_WeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 void UTP_WeaponComponent::StartHorizontalRecoil(float Value)
 {
 	if (RecoilTimeline.IsReversing()) {return;}
+	//Character->AddControllerYawInput(0.1f);
 	Character->AddControllerYawInput(Value);
 }
 
 void UTP_WeaponComponent::StartVerticalRecoil(float Value)
 {
 	if (RecoilTimeline.IsReversing()) { return; }
+	//Character->AddControllerPitchInput(0.1f);
 	Character->AddControllerPitchInput(Value);
 }
 

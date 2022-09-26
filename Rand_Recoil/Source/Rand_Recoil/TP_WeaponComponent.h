@@ -53,6 +53,8 @@ protected:
 	int32 Ammo = 30;
 
 	bool OnRecoil = false;
+
+	bool first = false;
 public:
 	FTimeline RecoilTimeline;
 
@@ -69,11 +71,12 @@ public:
 
 	void ReverseRecoil();
 
-	UPROPERTY(EditAnywhere, BluePrintReadOnly, Category = "Advanced Recoil")
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil")
 	class UCurveFloat* HorizentalCurve;
 
-	UPROPERTY(EditAnywhere, BluePrintReadOnly, Category="Advanced Recoil")
+	UPROPERTY(EditAnywhere, Category="Advanced Recoil")
 	class UCurveFloat* VerticalCurve;
+
 
 
 

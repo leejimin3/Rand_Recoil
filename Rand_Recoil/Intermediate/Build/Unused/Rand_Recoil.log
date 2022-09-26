@@ -1,49 +1,20 @@
 ﻿  Using bundled DotNet SDK
   Log file: C:\Users\82103\AppData\Local\UnrealBuildTool\Log.txt
   Using 'git status' to determine working set for adaptive non-unity build (D:\Rand_Recoil).
-  Invalidating makefile for Rand_RecoilEditor (UnrealEditor-Rand_Recoil.lib.response modified)
-  Parsing headers for Rand_RecoilEditor
-    Running UnrealHeaderTool "D:\Rand_Recoil\Rand_Recoil\Rand_Recoil.uproject" "D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\Rand_RecoilEditor\Development\Rand_RecoilEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\82103\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for Rand_RecoilEditor in 6.5659812 seconds
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-4737.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-4737.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-4865.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-4865.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-5831.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-5831.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-6216.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-6216.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-9079.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-9079.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-9553.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-9553.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-9968.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-9968.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-4737.lib
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-4865.lib
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-5831.lib
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-6216.lib
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-9079.lib
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-9553.lib
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-9968.lib
+  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-0044.dll
+  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-0044.pdb
+  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-0044.lib
   Building Rand_RecoilEditor...
   Using Visual Studio 2019 14.29.30145 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  [Adaptive Build] Excluded from Rand_Recoil unity file: TP_WeaponComponent.cpp
   Determining max actions to execute in parallel (6 physical cores, 12 logical cores)
     Executing up to 6 processes, one per physical core
-    Requested 1.5 GB free memory per action, 7.97 GB available: limiting max parallel actions to 5
-  Building 11 actions with 5 processes...
-  [1/11] Compile Rand_Recoil.init.gen.cpp
-  [2/11] Compile Rand_RecoilCharacter.gen.cpp
-  [3/11] Compile TP_WeaponComponent.cpp
-  [4/11] Compile TP_WeaponComponent.gen.cpp
-  [5/11] Compile Rand_RecoilCharacter.cpp
-  [6/11] Compile TP_PickUpComponent.gen.cpp
-  [7/11] Compile Rand_RecoilGameMode.cpp
-  [8/11] Compile TP_PickUpComponent.cpp
-  [9/11] Link UnrealEditor-Rand_Recoil.lib
+    Requested 1.5 GB free memory per action, 7.49 GB available: limiting max parallel actions to 4
+  Building 3 actions with 3 processes...
+  [1/3] Link UnrealEditor-Rand_Recoil.lib
      D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.lib 라이브러리 및 D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.exp 개체를 생성하고 있습니다.
-  [10/11] Link UnrealEditor-Rand_Recoil.dll
+  [2/3] Link UnrealEditor-Rand_Recoil.dll
      D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.suppressed.lib 라이브러리 및 D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.suppressed.exp 개체를 생성하고 있습니다.
-  [11/11] WriteMetadata Rand_RecoilEditor.target
-  Total time in Parallel executor: 9.44 seconds
-  Total execution time: 19.67 seconds
+  [3/3] WriteMetadata Rand_RecoilEditor.target
+  Total time in Parallel executor: 1.49 seconds
+  Total execution time: 2.73 seconds
