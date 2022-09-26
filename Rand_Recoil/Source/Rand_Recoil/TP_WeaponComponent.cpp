@@ -96,11 +96,15 @@ void UTP_WeaponComponent::Fire()
 			FVector TraceEnd = TraceStart + CameraRotation.Vector() * 10000;
 
 			bool bHasHitSomething = World->LineTraceSingleByChannel(Hit, TraceStart, TraceEnd, ECC_Visibility, Params);
-			DrawDebugLine(World, TraceStart, TraceEnd, FColor::Red, false, 3.0f, 0, 0.5f);
+			//DrawDebugLine(World, TraceStart, TraceEnd, FColor::Red, false, 3.0f, 0, 0.5f);
 
 			if (bHasHitSomething)
 			{
-				DrawDebugBox(World, Hit.Location, FVector(15), FColor::Green, false, 3.0f, 0, 3.0f);
+				if(!HitEmitter) { return; }
+				UGameplayStatics::SpawnEmitterAtLocation(World, HitEmitter, Hit.Location);
+				//DrawDebugBox(World, Hit.Location, FVector(15), FColor::Green, false, 3.0f, 0, 3.0f);
+				if (!HitDecalMaterial) { return; }
+				UGameplayStatics::SpawnDecalAtLocation(World, HitDecalMaterial, FVector(15.0f), Hit.Location, Hit.ImpactNormal.Rotation(), 10.0f);
 			}
 
 			// Try and play the sound if specified
