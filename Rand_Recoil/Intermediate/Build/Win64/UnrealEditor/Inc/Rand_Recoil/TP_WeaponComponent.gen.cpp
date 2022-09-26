@@ -21,6 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UMaterialInstance_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UTP_WeaponComponent::execSetCurve)
 	{
@@ -319,6 +321,14 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_VerticalCurve_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_VerticalCurve;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HitEmitter_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HitEmitter;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HitDecalMaterial_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HitDecalMaterial;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -383,18 +393,32 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_MuzzleOffset = { "MuzzleOffset", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTP_WeaponComponent, MuzzleOffset), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_MuzzleOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_MuzzleOffset_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HorizentalCurve_MetaData[] = {
-		{ "Category", "Advanced Recoil" },
+		{ "Category", "Advanced Recoil|Curves" },
 		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HorizentalCurve = { "HorizentalCurve", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, CPP_ARRAY_DIM(HorizentalCurve, UTP_WeaponComponent), STRUCT_OFFSET(UTP_WeaponComponent, HorizentalCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HorizentalCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HorizentalCurve_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_VerticalCurve_MetaData[] = {
-		{ "Category", "Advanced Recoil" },
+		{ "Category", "Advanced Recoil|Curves" },
 		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_VerticalCurve = { "VerticalCurve", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, CPP_ARRAY_DIM(VerticalCurve, UTP_WeaponComponent), STRUCT_OFFSET(UTP_WeaponComponent, VerticalCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_VerticalCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_VerticalCurve_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitEmitter_MetaData[] = {
+		{ "Category", "Advanced Recoil|FX" },
+		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitEmitter = { "HitEmitter", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTP_WeaponComponent, HitEmitter), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitEmitter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitEmitter_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitDecalMaterial_MetaData[] = {
+		{ "Category", "Advanced Recoil|FX" },
+		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitDecalMaterial = { "HitDecalMaterial", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTP_WeaponComponent, HitDecalMaterial), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitDecalMaterial_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitDecalMaterial_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTP_WeaponComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_ProjectileClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_FireSound,
@@ -402,6 +426,8 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_MuzzleOffset,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HorizentalCurve,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_VerticalCurve,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitEmitter,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_HitDecalMaterial,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UTP_WeaponComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UTP_WeaponComponent>::IsAbstract,
@@ -439,9 +465,9 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_TP_WeaponComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 3906453155U) },
+		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 2579084714U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_TP_WeaponComponent_h_2652359087(TEXT("/Script/Rand_Recoil"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_TP_WeaponComponent_h_625458786(TEXT("/Script/Rand_Recoil"),
 		Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_TP_WeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_TP_WeaponComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

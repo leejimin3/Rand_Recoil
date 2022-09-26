@@ -71,15 +71,17 @@ public:
 
 	void ReverseRecoil();
 
-	UPROPERTY(EditAnywhere, Category = "Advanced Recoil")
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|Curves")
 	class UCurveFloat* HorizentalCurve[3];
 
-	UPROPERTY(EditAnywhere, Category="Advanced Recoil")
+	UPROPERTY(EditAnywhere, Category="Advanced Recoil|Curves")
 	class UCurveFloat* VerticalCurve[3];
 
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|FX")
+	class UParticleSystem* HitEmitter;
 
-
-
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|FX")
+	class UMaterialInstance* HitDecalMaterial;
 
 private:
 	/** The Character holding this weapon*/
