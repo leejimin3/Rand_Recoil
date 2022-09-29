@@ -1,32 +1,31 @@
 # Rand_Recoil
 
 ---
-본 깃허브는 FPS반동에 대한 기능을 담고 있음
+This Github contains information about gun recoil in the FPS game.
 
-* Read me는 영어로 변경예정
 ---
-주요 목록
+## Programmer Rules
 
-1. 깃허브를 Gitflow Workflow를 활용하여 사용
-2. 디자인 패턴 & 개발 방법론 사용
-3. 코드의 주석을 통한 코드 리뷰
-4. OOP&STL을 통한 코딩
+1. Use Gitflow Workflow
+2. Use Remarks on the code to describe the content
+3. Write code using OOP & STL
 
 ---
 
-## 요약
+## Overview
 
-본 프로젝트는 FPS반동의 다양화 및 개선 방향을 위해 제작
-논문 작성과 함께 진행될 예정이며 논문 내용은 후에 첨부할 예정임
+This project is Maked for diversify and improve FPS game gun recoil.
+It is carried out with the writing of the thesis.
 
-논문의 제목은 "FPS게임 기반 랜덤형 탄막 반동 배열 시스템"이며
-논문 내용은 현 Git의 내용을 문서화한 내용이 삽입됨
+thesis title is "FPS game-based spray-type gun recoil system",
+and the contents of the thesis are documented by this git.
 
 ---
 
 
-## 진행도
+## Progress
 
-1. 설치 / 총기 기능 구현 - 완료
-2. 반동 기능 구현 - 완료
-3. 반동의 배열 기능 구현 - 완료
+1. Install programs / Implement gun functionality Implementation -Done ✔
+2. Implementing gun recoil function(No Random) -Done ✔
+3. Implementation of the array function of recoil(No Random, Just array) -Done ✔
+4. Implement the random function of the recoil array -Done ✔
