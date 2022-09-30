@@ -1,21 +1,6 @@
 ﻿  Using bundled DotNet SDK
   Log file: C:\Users\82103\AppData\Local\UnrealBuildTool\Log.txt
   Using 'git status' to determine working set for adaptive non-unity build (D:\Rand_Recoil).
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-6861.dll
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Binaries\Win64\UnrealEditor-Rand_Recoil-6861.pdb
-  Deleted hot-reload file: D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil-6861.lib
-  Building Rand_RecoilEditor...
-  Using Visual Studio 2019 14.29.30145 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Adaptive Build] Excluded from Rand_Recoil unity file: TP_WeaponComponent.cpp
-  Determining max actions to execute in parallel (6 physical cores, 12 logical cores)
-    Executing up to 6 processes, one per physical core
-    Requested 1.5 GB free memory per action, 6.53 GB available: limiting max parallel actions to 4
-  Building 4 actions with 4 processes...
-  [1/4] Compile TP_WeaponComponent.cpp
-  [2/4] Link UnrealEditor-Rand_Recoil.lib
-     D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.lib 라이브러리 및 D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.exp 개체를 생성하고 있습니다.
-  [3/4] Link UnrealEditor-Rand_Recoil.dll
-     D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.suppressed.lib 라이브러리 및 D:\Rand_Recoil\Rand_Recoil\Intermediate\Build\Win64\UnrealEditor\Development\Rand_Recoil\UnrealEditor-Rand_Recoil.suppressed.exp 개체를 생성하고 있습니다.
-  [4/4] WriteMetadata Rand_RecoilEditor.target
-  Total time in Parallel executor: 3.41 seconds
-  Total execution time: 5.20 seconds
+  Invalidating makefile for Rand_RecoilEditor (working set of source files changed)
+  Target is up to date
+  Total execution time: 3.44 seconds
