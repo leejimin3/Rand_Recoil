@@ -43,6 +43,14 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void Fire();
 
+private:
+	
+	int32 Ammo = 30;
+
+	bool OnRecoil = false;
+
+	bool first = false;
+
 protected:
 
 	UFUNCTION()
@@ -50,11 +58,7 @@ protected:
 	
 	void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	int32 Ammo = 30;
 
-	bool OnRecoil = false;
-
-	bool first = false;
 public:
 	FTimeline RecoilTimeline;
 
