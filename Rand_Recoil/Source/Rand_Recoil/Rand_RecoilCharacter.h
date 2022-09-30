@@ -89,6 +89,14 @@ protected:
 	TouchData	TouchItem;
 	
 
+private:
+	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_CurrentAmmo, BlueprintSetter = Set_CurrentAmmo, Category = Stat)
+		int32 CurrentAmmo = 0;
+	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_DefaultAmmo, BlueprintSetter = Set_DefaultAmmo, Category = Stat)
+		int32 DefaultAmmo = 0;
+
+
+
 public:
 
 #pragma region ADVANCED RECOIL
@@ -96,10 +104,7 @@ public:
 	void OnStopFire();
 	void OnStartReload();
 	void Reload();
-	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_CurrentAmmo, BlueprintSetter = Set_CurrentAmmo, Category = Stat)
-		int32 CurrentAmmo = 0;
-	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_DefaultAmmo, BlueprintSetter = Set_DefaultAmmo, Category = Stat)
-		int32 DefaultAmmo = 0;
+
 
 
 	UFUNCTION(BlueprintGetter, Category = Stat)

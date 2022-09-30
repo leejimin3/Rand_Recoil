@@ -375,7 +375,7 @@ void EmptyLinkFunctionForGeneratedCodeRand_RecoilCharacter() {}
 		{ "ModuleRelativePath", "Rand_RecoilCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_CurrentAmmo = { "CurrentAmmo", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARand_RecoilCharacter, CurrentAmmo), METADATA_PARAMS(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_CurrentAmmo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_CurrentAmmo_MetaData)) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_CurrentAmmo = { "CurrentAmmo", nullptr, (EPropertyFlags)0x0040000000010005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARand_RecoilCharacter, CurrentAmmo), METADATA_PARAMS(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_CurrentAmmo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_CurrentAmmo_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_DefaultAmmo_MetaData[] = {
 		{ "BlueprintGetter", "Get_DefaultAmmo" },
@@ -384,7 +384,7 @@ void EmptyLinkFunctionForGeneratedCodeRand_RecoilCharacter() {}
 		{ "ModuleRelativePath", "Rand_RecoilCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_DefaultAmmo = { "DefaultAmmo", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARand_RecoilCharacter, DefaultAmmo), METADATA_PARAMS(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_DefaultAmmo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_DefaultAmmo_MetaData)) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_DefaultAmmo = { "DefaultAmmo", nullptr, (EPropertyFlags)0x0040000000010005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARand_RecoilCharacter, DefaultAmmo), METADATA_PARAMS(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_DefaultAmmo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_DefaultAmmo_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARand_RecoilCharacter_Statics::NewProp_MouseDown_MetaData[] = {
 		{ "ModuleRelativePath", "Rand_RecoilCharacter.h" },
@@ -440,9 +440,9 @@ void EmptyLinkFunctionForGeneratedCodeRand_RecoilCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ARand_RecoilCharacter, ARand_RecoilCharacter::StaticClass, TEXT("ARand_RecoilCharacter"), &Z_Registration_Info_UClass_ARand_RecoilCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARand_RecoilCharacter), 2785812163U) },
+		{ Z_Construct_UClass_ARand_RecoilCharacter, ARand_RecoilCharacter::StaticClass, TEXT("ARand_RecoilCharacter"), &Z_Registration_Info_UClass_ARand_RecoilCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARand_RecoilCharacter), 3651589871U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_1518905165(TEXT("/Script/Rand_Recoil"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_255402410(TEXT("/Script/Rand_Recoil"),
 		Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Rand_Recoil_Source_Rand_Recoil_Rand_RecoilCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
