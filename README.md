@@ -1,7 +1,11 @@
 # Rand_Recoil
 
 ---
-This Github contains information about gun recoil in the FPS game.
+# Preview
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/86705754/193240215-f479a881-6c0c-4f65-8322-cb349fffe176.gif)
+
+- This Github contains information about gun recoil in the FPS game.
 
 ---
 ## Programmer Rules
@@ -29,3 +33,4 @@ and the contents of the thesis are documented by this git.
 2. Implementing gun recoil function(No Random) -Done ✔
 3. Implementation of the array function of recoil(No Random, Just array) -Done ✔
 4. Implement the random function of the recoil array -Done ✔
+
