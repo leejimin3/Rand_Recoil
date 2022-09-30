@@ -104,7 +104,7 @@ void UTP_WeaponComponent::Fire()
 				UGameplayStatics::SpawnEmitterAtLocation(World, HitEmitter, Hit.Location);
 				//DrawDebugBox(World, Hit.Location, FVector(15), FColor::Green, false, 3.0f, 0, 3.0f);
 				if (!HitDecalMaterial) { return; }
-				UGameplayStatics::SpawnDecalAtLocation(World, HitDecalMaterial, FVector(15.0f), Hit.Location, Hit.ImpactNormal.Rotation(), 10.0f);
+				UGameplayStatics::SpawnDecalAtLocation(World, HitDecalMaterial, FVector(15.0f), Hit.Location, Hit.ImpactNormal.Rotation(), 30.0f);
 			}
 
 			// Try and play the sound if specified
