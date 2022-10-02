@@ -69,25 +69,24 @@ public:
 	void StartVerticalRecoil(float Value);
 
 	UFUNCTION()
-	void SetCurve(UCurveFloat* Hor, UCurveFloat* Ver);
+	void SetCurve(UCurveFloat* Hor, UCurveFloat* Ver);				//Apply a random curve to the gun in the array
 
 	void StartRecoil();
 
 	void ReverseRecoil();
 
-	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|Curves")
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|Curves")	//Create an array that holds curves of Horizontal
 	class UCurveFloat* HorizentalCurve[3];
 
-	UPROPERTY(EditAnywhere, Category="Advanced Recoil|Curves")
+	UPROPERTY(EditAnywhere, Category="Advanced Recoil|Curves")	//Create an array that holds curves of Vertical
 	class UCurveFloat* VerticalCurve[3];
 
-	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|FX")
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|FX") 
 	class UParticleSystem* HitEmitter;
 
 	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|FX")
 	class UMaterialInstance* HitDecalMaterial;
 
 private:
-	/** The Character holding this weapon*/
 	ARand_RecoilCharacter* Character;
 };
