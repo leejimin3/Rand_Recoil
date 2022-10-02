@@ -32,24 +32,24 @@ void UTP_WeaponComponent::SetCurve(UCurveFloat* Hor, UCurveFloat* Ver)
 		return;
 	}
 
-		FOnTimelineFloat XRecoilCurve;
-		FOnTimelineFloat YRecoilCurve;
+		FOnTimelineFloat XRecoilCurve;		//HorizontalRecoil
+		FOnTimelineFloat YRecoilCurve;		//VerticalRecoil
 
 
-		XRecoilCurve.BindUFunction(this, FName("StartHorizontalRecoil"));
-		YRecoilCurve.BindUFunction(this, FName("StartVerticalRecoil"));
+		XRecoilCurve.BindUFunction(this, FName("StartHorizontalRecoil"));	//Bind Function On XRecoil "StartHorizontalRecoil"
+		YRecoilCurve.BindUFunction(this, FName("StartVerticalRecoil"));		//Bind Function On YRecoil "StartVerticalRecoil"
 
-		if (first == false)
+		if (first == false)													//If you shoot for the first time, the "Recoiltimeline" adds a curve value.
 		{
-		RecoilTimeline.AddInterpFloat(Hor, XRecoilCurve, NAME_None, TEXT("Test1"));
-		RecoilTimeline.AddInterpFloat(Ver, YRecoilCurve, NAME_None, TEXT("Test2"));
+		RecoilTimeline.AddInterpFloat(Hor, XRecoilCurve, NAME_None, TEXT("HorizonCurve"));
+		RecoilTimeline.AddInterpFloat(Ver, YRecoilCurve, NAME_None, TEXT("VerticalCurve"));
 		first = true;
 		}
 
-		else
+		else																//If you're not shooting for the first time, modify the existing curve value.
 		{
-			RecoilTimeline.SetFloatCurve(Hor, TEXT("Test1"));
-			RecoilTimeline.SetFloatCurve(Ver, TEXT("Test2"));
+			RecoilTimeline.SetFloatCurve(Hor, TEXT("HorizonCurve"));
+			RecoilTimeline.SetFloatCurve(Ver, TEXT("VerticalCurve"));
 		}
 
 
@@ -67,16 +67,15 @@ void UTP_WeaponComponent::Fire()
 
 
 	UWorld* const World = GetWorld();
-	// Try and fire a projectile
+
 	if (Character->Get_CurrentAmmo() > 0)
 	{
 		if (World != nullptr)
 		{	
 			if(OnRecoil == false)
 			{
-				int ran = rand() % 3;
-				SetCurve(HorizentalCurve[ran], VerticalCurve[ran]);
-				UE_LOG(LogTemp, Log, TEXT("%d"), ran);
+				int ran = rand() % 3;									// 'ran' is Random Value between 0~2. This value will determine which curve to give the gun.
+				SetCurve(HorizentalCurve[ran], VerticalCurve[ran]);		// Send the curve equal to the value of 'ran' to the gun.
 				StartRecoil();
 				OnRecoil = true;
 			}
@@ -96,13 +95,12 @@ void UTP_WeaponComponent::Fire()
 			FVector TraceEnd = TraceStart + CameraRotation.Vector() * 10000;
 
 			bool bHasHitSomething = World->LineTraceSingleByChannel(Hit, TraceStart, TraceEnd, ECC_Visibility, Params);
-			//DrawDebugLine(World, TraceStart, TraceEnd, FColor::Red, false, 3.0f, 0, 0.5f);
 
 			if (bHasHitSomething)
 			{
 				if(!HitEmitter) { return; }
 				UGameplayStatics::SpawnEmitterAtLocation(World, HitEmitter, Hit.Location);
-				//DrawDebugBox(World, Hit.Location, FVector(15), FColor::Green, false, 3.0f, 0, 3.0f);
+
 				if (!HitDecalMaterial) { return; }
 				UGameplayStatics::SpawnDecalAtLocation(World, HitDecalMaterial, FVector(15.0f), Hit.Location, Hit.ImpactNormal.Rotation(), 30.0f);
 			}
@@ -125,17 +123,6 @@ void UTP_WeaponComponent::Fire()
 			}
 
 
-
-			//const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-			//// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-			//const FVector SpawnLocation = GetOwner()->GetActorLocation() + SpawnRotation.RotateVector(MuzzleOffset);
-	
-			////Set Spawn Collision Handling Override
-			//FActorSpawnParameters ActorSpawnParams;
-			//ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-	
-			//// Spawn the projectile at the muzzle
-			//World->SpawnActor<ARand_RecoilProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 		}
 	}
 	else
@@ -204,14 +191,12 @@ void UTP_WeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 void UTP_WeaponComponent::StartHorizontalRecoil(float Value)
 {
 	if (RecoilTimeline.IsReversing()) {return;}
-	//Character->AddControllerYawInput(0.1f);
 	Character->AddControllerYawInput(Value);
 }
 
 void UTP_WeaponComponent::StartVerticalRecoil(float Value)
 {
 	if (RecoilTimeline.IsReversing()) { return; }
-	//Character->AddControllerPitchInput(0.1f);
 	Character->AddControllerPitchInput(Value);
 }
 
