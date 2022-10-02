@@ -55,6 +55,14 @@ protected:
 	/** Handles strafing movement, left and right */
 	void MoveRight(float Val);
 
+
+	void Turn(float Value);
+
+	void Lookup(float Value);
+	
+
+
+
 	/**
 	 * Called via input to turn at a given rate.
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
@@ -80,6 +88,51 @@ protected:
 	void TouchUpdate(const ETouchIndex::Type FingerIndex, const FVector Location);
 	TouchData	TouchItem;
 	
+
+private:
+	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_CurrentAmmo, BlueprintSetter = Set_CurrentAmmo, Category = Stat)
+		int32 CurrentAmmo = 0;
+	UPROPERTY(EditDefaultsOnly, BlueprintGetter = Get_DefaultAmmo, BlueprintSetter = Set_DefaultAmmo, Category = Stat)
+		int32 DefaultAmmo = 0;
+
+
+
+public:
+
+#pragma region ADVANCED RECOIL
+	void OnStartFire();
+	void OnStopFire();
+	void OnStartReload();
+	void Reload();
+
+
+
+	UFUNCTION(BlueprintGetter, Category = Stat)
+		int Get_DefaultAmmo();
+	UFUNCTION(BlueprintSetter, Category = Stat)
+		void Set_DefaultAmmo(int32 Ammo);
+
+	UFUNCTION(BlueprintGetter, Category = Stat)
+		int Get_CurrentAmmo();
+
+	UFUNCTION(BlueprintSetter, Category = Stat)
+		void Set_CurrentAmmo(int32 Ammo);
+
+	FTimerHandle AutomaticFireHandle;
+
+	FRotator StartRotation;
+
+	UPROPERTY()
+		bool MouseDown = false;
+
+	UFUNCTION(BlueprintGetter, Category = Stat)
+		bool Get_MouseDown();
+
+	float YawInput;
+	float PitchInput;
+#pragma endregion
+
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;

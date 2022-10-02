@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "Components/TimelineComponent.h"
 #include "Components/ActorComponent.h"
 #include "TP_WeaponComponent.generated.h"
 
@@ -41,13 +43,50 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void Fire();
 
+private:
+	
+	int32 Ammo = 30;
+
+	bool OnRecoil = false;
+
+	bool first = false;
+
 protected:
-	/** Ends gameplay for this component. */
+
 	UFUNCTION()
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-		
+	
+	void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+
+public:
+	FTimeline RecoilTimeline;
+
+	UFUNCTION()
+	void StartHorizontalRecoil(float Value);
+
+	UFUNCTION()
+	void StartVerticalRecoil(float Value);
+
+	UFUNCTION()
+	void SetCurve(UCurveFloat* Hor, UCurveFloat* Ver);				//Apply a random curve to the gun in the array
+
+	void StartRecoil();
+
+	void ReverseRecoil();
+
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|Curves")	//Create an array that holds curves of Horizontal
+	class UCurveFloat* HorizentalCurve[3];
+
+	UPROPERTY(EditAnywhere, Category="Advanced Recoil|Curves")	//Create an array that holds curves of Vertical
+	class UCurveFloat* VerticalCurve[3];
+
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|FX") 
+	class UParticleSystem* HitEmitter;
+
+	UPROPERTY(EditAnywhere, Category = "Advanced Recoil|FX")
+	class UMaterialInstance* HitDecalMaterial;
 
 private:
-	/** The Character holding this weapon*/
 	ARand_RecoilCharacter* Character;
 };
