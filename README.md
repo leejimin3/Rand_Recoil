@@ -35,6 +35,6 @@ and the contents of the thesis are documented by this git.
 4. Implement the random function of the recoil array -Done ✔
 
 ---
-## Class Diagram
+## Diagram
 
 <img src="https://user-images.githubusercontent.com/86705754/193256841-27566bcd-2cbc-4431-b9b5-1133c0877ea3.PNG" width="600" height="400">
