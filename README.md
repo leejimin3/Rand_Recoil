@@ -29,10 +29,10 @@ and the contents of the thesis are documented by this git.
 
 ## Progress
 
-1. Install programs / Implement gun functionality Implementation -Done ✔
-2. Implementing gun recoil function(No Random) -Done ✔
-3. Implementation of the array function of recoil(No Random, Just array) -Done ✔
-4. Implement the random function of the recoil array -Done ✔
+1. Install programs / Implement gun functionality Implementation ✔
+2. Implementing gun recoil function(No Random) ✔
+3. Implementation of the array function of recoil(No Random, Just array) ✔
+4. Implement the random function of the recoil array ✔
 
 ---
 ## Diagram
