@@ -21,7 +21,7 @@
 This project is Maked for diversify and improve FPS game gun recoil.
 It is carried out with the writing of the thesis.
 
-thesis title is "FPS game-based spray-type gun recoil system",
+Thesis title is "FPS game-based spray-type gun recoil system",
 and the contents of the thesis are documented by this git.
 
 ---
