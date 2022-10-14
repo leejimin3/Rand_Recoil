@@ -8,13 +8,6 @@
 - This Github contains information about gun recoil in the FPS game.
 
 ---
-## Programmer Rules
-
-1. Use Gitflow Workflow
-2. Use Remarks on the code to describe the content
-3. Write code using OOP & STL
-
----
 
 ## Overview
 
@@ -25,6 +18,17 @@ Thesis title is "FPS game-based spray-type gun recoil system",
 and the contents of the thesis are documented by this git.
 
 ---
+
+
+## Programmer Rules
+
+1. Use Gitflow Workflow
+2. Use Remarks on the code to describe the content
+3. Write code using OOP & STL
+
+---
+
+
 
 
 ## Progress
