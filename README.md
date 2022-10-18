@@ -1,7 +1,7 @@
 # Rand_Recoil
 
 ---
-# Preview
+## Preview
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/86705754/193240215-f479a881-6c0c-4f65-8322-cb349fffe176.gif)
 
