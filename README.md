@@ -11,6 +11,8 @@
 
 ## Overview
 
+You can use a random function for the recoil of a gun.
+
 This project is Maked for diversify and improve FPS game gun recoil.
 It is carried out with the writing of the thesis.
 
@@ -30,6 +32,14 @@ and the contents of the thesis are documented by this git.
 
 
 
+
+## Function
+
+- You can move the character and grab the gun.
+- You can fire a gun with a left click and load it with an R key.
+★ You can experience different gun recoil when you fire a gun.
+
+---
 
 ## Progress
 
