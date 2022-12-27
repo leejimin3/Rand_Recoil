@@ -30,9 +30,6 @@ and the contents of the thesis are documented by this git.
 
 ---
 
-
-
-
 ## Function
 
 ★ You can experience different gun recoil when you fire a gun.  
@@ -59,3 +56,8 @@ and the contents of the thesis are documented by this git.
 ## Video
 
 ### [Link](https://youtu.be/PJ4SHMYDEiA)
+
+
+## Notion
+
+### [Link](https://www.notion.so/Rand_Recoil-2022-ebdd381b4cc7434d854f4ab59342a8e5)
