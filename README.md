@@ -32,7 +32,7 @@ and the contents of the thesis are documented by this git.
 
 ## Function
 
-★ You can experience different gun recoil when you fire a gun.  
+You can experience different gun recoil when you fire a gun.  
 
 - You can move the character and grab the gun.
 - You can fire a gun with a left click and load it with an R key.
